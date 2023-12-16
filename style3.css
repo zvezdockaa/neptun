@@ -1,0 +1,142 @@
+.desktop{
+background-color:#ffffff;
+display:flex;
+flex-direction:row;
+justify-content:center;
+width:100%;
+}
+.desktop .overlap-group-wrapper{
+background-color:#ffffff;
+width:1440px;
+height:1024px;
+}
+.desktop .overlap-group {
+position:relative;
+height:984px;
+top:40px;
+}
+.desktop .photo{
+position:absolute;
+height:491px;
+height:905px;
+top:79px;
+left:0;
+object-fit:cover;
+}
+.desktop .img {
+position : absolute ;
+width : 465px ;
+height : 905px ;
+top : 79px ;
+left : 975px ;
+object-fit : cover ;
+}
+.desktop .rectangle {
+position : absolute ;
+width : 598px ;
+height : 405px ;
+top : 270px ;
+left : 410px ;
+background-color:#d9d9d9 ;
+}
+.desktop .div {
+position : absolute ;
+width : 421px ;
+height : 67px ;
+top : 456px ;
+left : 439px ;
+background-color : #588ffb ;
+border-radius : 15px ;
+}
+.desktop .rectangle-2{
+position:absolute;
+width : 421px ;
+height : 67px ;
+top : 585px ;
+left : 498px ;
+background-color : # a5a6f6 ;
+border-radius : 15px ;
+}
+.desktop .rectangle-3 {
+position : absolute ;
+width : 421px ;
+height : 67px ;
+top : 341px ;
+left : 439px ;
+background-color : # 588ffb ;
+border-radius : 15px ;
+}
+.desktop .text-wrapper {
+width : 394px ;
+top : 359px ;
+left : 445px ;
+font-family : " Montserrat Alternates - ExtraBold " , Helvetica ;
+font-weight : 800 ;
+font-size : 30px ;
+position : absolute ;
+color : # 000000 ;
+}
+.desktop .text-wrapper-2 {
+width : 394px ;
+top : 469px ;
+left : 445px ;
+font-family : " Montserrat Alternates - ExtraBold " , Helvetica ;
+font-weight : 800 ;
+font-size : 30px ;
+position : absolute ;
+color : # 000000 ;
+letter-spacing : 0 ;
+line-height : normal ;
+}
+
+.desktop .text-wrapper-3 {
+width : 394px ;
+top : 599px ;
+left : 510px ;
+font-family : " Montserrat Alternates - ExtraBold " , Helvetica ;
+font-weight : 800 ;
+font-size : 30px ;
+position : absolute ;
+color : # 000000 ;
+letter-spacing : 0 ;
+line-height : normal ;
+}
+
+.desktop .rectangle-4 {
+position : absolute ;
+width : 550px ;
+height : 140px ;
+top : 0 ;
+left : 425px ;
+background-color : # 5d5fef ;
+border-radius : 15px ;
+}
+.desktop .NEPTUNE {
+position : absolute ;
+width : 477px ;
+height : 69px ;
+top : 36px ;
+left : 463px ;
+}
+.desktop .p {
+width : 542px ;
+top : 154px ;
+left : 425px ;
+font-family : " Montserrat - SemiBold " , Helvetica ;
+font-weight : 600 ;
+font-size : 32px ;
+position : absolute ;
+color : # 000000 ;
+letter-spacing : 0 ;
+line-height : normal ;
+}
+.desktop .text-wrapper-4 {
+top : 681px ;
+left : 425px ;
+font-family : " Montserrat - SemiBold " , Helvetica ;
+font-weight : 600 ;
+font-size : 32px ;
+position : absolute ;
+color : # 000000 ;
+letter-spacing:0;
+}
