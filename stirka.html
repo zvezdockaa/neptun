@@ -11,25 +11,96 @@
   </head>
   <body>
   <script>
-    $( function() {
-      $( ".datepicker" ).datepicker();
-    } );
+    $( function() {      
+  $( ".datepicker" ).datepicker({
+    minDate: 0,
+    maxDate: "+2w"
+  });
+});
+     function selectLaundryTime(time) {
+      var popup = document.createElement('div');
+      popup.classList.add('popup');
+      var title = document.createElement('div');
+      title.textContent = 'Выбор времени на стирку';
+      var slider = document.createElement('input');
+	  var selectedMachine = document.querySelector('select[name="cars"]').value;
+      slider.type = 'range';
+      slider.min = '30';
+	  slider.step= '30'
+      slider.max = '180';
+      slider.value = '30';
+      slider.oninput = function() {
+        var hours = Math.floor(this.value / 60);
+        var minutes = this.value % 60;
+        var formattedTime = formatTime(hours, minutes);
+        timeDisplay.textContent = formattedTime;
+      };
+      var timeDisplay = document.createElement('div');
+      var initHours = Math.floor(slider.value / 60);
+      var initMinutes = slider.value % 60;
+      timeDisplay.textContent = formatTime(initHours, initMinutes);
+      var confirmButton = document.createElement('button');
+      confirmButton.textContent = 'Подтвердить';
+      confirmButton.onclick = function() {
+        var selectedTime = parseTime(slider.value);
+        if (selectedTime >= 30 && selectedTime <= 180) {
+          alert('Вы успешно записаны на стирку на ' + time + ' с продолжительностью ' + formatTime(selectedTime) + ' минут');
+        } else {
+          alert('Выбрано недопустимое время стирки');
+        }
+        document.body.removeChild(popup);
+      }
+      popup.appendChild(title);
+      popup.appendChild(slider);
+      popup.appendChild(timeDisplay);
+      popup.appendChild(confirmButton);
+      document.body.appendChild(popup);
+    }
+
+    function formatTime(hours, minutes) {
+      return hours + ' часов ' + (minutes < 10 ? '0' : '') + minutes + ' минут';
+    }
+
+    function parseTime(minutes) {
+      return parseInt(minutes, 10);
+    }
+	confirmButton.onclick = function() { 
+	  var selectedTime = parseTime(slider.value); 
+	  if (selectedTime >= 30 && selectedTime <= 180) { 
+		alert('Вы успешно записаны на стирку на ' + time + ' с продолжительностью ' + formatTime(selectedTime) + ' минут'); { 
+		alert('Выбрано недопустимое время стирки'); 
+	  } 
+	  document.body.removeChild(popup); 
+}
+}
+
+function goTo(page) {
+            if (page === 'stirka') {
+                window.location.href = 'stirka.html';
+            } else if (page === 'dush') {
+                window.location.href = 'dush.html';
+            } else if (page === 'info') {
+                window.location.href = 'info.html';
+            } else if (page === 'account') {
+                window.location.href = 'account.html';
+            }
+        }
   </script>
     <div class="desktop">
       <div class="div">
         <div class="overlap">
           <div class="component">
-            <div class="overlap-group"><div class="text-wrapper">7:00</div></div>
-            <div class="div-wrapper"><div class="text-wrapper-2">6:00</div></div>
+            <div class="overlap-group "><div class="text-wrapper" onclick="selectLaundryTime('7:00')">7:00</div></div>
+            <div class="div-wrapper"><div class="text-wrapper" onclick="selectLaundryTime('6:00')">6:00</div></div>
             <div class="overlap-2">
               <div class="div-2"></div>
-              <div class="text-wrapper">5:00</div>
+              <div class="text-wrapper" onclick="selectLaundryTime('5:00')">5:00</div>
             </div>
-            <div class="overlap-3"><div class="text-wrapper-2">2:00</div></div>
-            <div class="overlap-4"><div class="text-wrapper-3">1:00</div></div>
-            <div class="div-2"><div class="text-wrapper-4">0:00</div></div>
-            <div class="overlap-5"><div class="text-wrapper-2">4:00</div></div>
-            <div class="overlap-6"><div class="text-wrapper-5">3:00</div></div>
+            <div class="overlap-3"><div class="text-wrapper" onclick="selectLaundryTime('2:00')">2:00</div></div>
+            <div class="overlap-4"><div class="text-wrapper" onclick="selectLaundryTime('1:00')">1:00</div></div>
+            <div class="div-2"><div class="text-wrapper" onclick="selectLaundryTime('0:00')">0:00</div></div>
+            <div class="overlap-5"><div class="text-wrapper" onclick="selectLaundryTime('4:00')">4:00</div></div>
+            <div class="overlap-6"><div class="text-wrapper" onclick="selectLaundryTime('3:00')">3:00</div></div>
           </div>
         </div>
         <img class="photo" src="photo_5982421623061459580_y-PhotoRoom.png-PhotoRoom.png">
@@ -40,10 +111,10 @@
               <div class="rectangle"></div>
               <div class="text-wrapper-6">NEPTUNE</div>
             </div>
-            <div class="overlap-8"><div class="text-wrapper-7">Стирка</div></div>
-            <div class="overlap-9"><div class="text-wrapper-8">Душ</div></div>
-            <div class="overlap-10"><div class="text-wrapper-9">Информация</div></div>
-            <div class="overlap-11"><div class="text-wrapper-10">Аккаунт</div></div>
+            <div class="overlap-8" onclick="goTo('stirka')"><div class="text-wrapper-7">Стирка</div></div> 
+    <div class="overlap-9" onclick="goTo('dush')"><div class="text-wrapper-8">Душ</div></div> 
+    <div class="overlap-10" onclick="goTo('info')"><div class="text-wrapper-9">Информация</div></div> 
+    <div class="overlap-11" onclick="goTo('account')"><div class="text-wrapper-10">Аккаунт</div></div>
           </div>
         </div>
         <div class="component-2">
@@ -61,24 +132,24 @@
 		  </select>
 		</div>
         <div class="component-4">
-          <div class="overlap-6"><div class="text-wrapper-12">11:00</div></div>
-          <div class="overlap-5"><div class="text-wrapper-13">12:00</div></div>
-          <div class="div-2"><div class="text-wrapper-3">8:00</div></div>
-          <div class="overlap-4"><div class="text-wrapper-3">9:00</div></div>
-          <div class="overlap-3"><div class="text-wrapper-14">10:00</div></div>
-          <div class="overlap-group"><div class="text-wrapper-12">15:00</div></div>
-          <div class="div-wrapper"><div class="text-wrapper-14">14:00</div></div>
-          <div class="overlap-2"><div class="text-wrapper-13">13:00</div></div>
+          <div class="overlap-6"><div class="text-wrapper" onclick="selectLaundryTime('11:00')">11:00</div></div>
+          <div class="overlap-5"><div class="text-wrapper" onclick="selectLaundryTime('12:00')">12:00</div></div>
+          <div class="div-2"><div class="text-wrapper" onclick="selectLaundryTime('8:00')">8:00</div></div>
+          <div class="overlap-4"><div class="text-wrapper" onclick="selectLaundryTime('9:00')">9:00</div></div>
+          <div class="overlap-3"><div class="text-wrapper" onclick="selectLaundryTime('10:00')">10:00</div></div>
+          <div class="overlap-group"><div class="text-wrapper" onclick="selectLaundryTime('15:00')">15:00</div></div>
+          <div class="div-wrapper"><div class="text-wrapper" onclick="selectLaundryTime('14:00')">14:00</div></div>
+          <div class="overlap-2"><div class="text-wrapper" onclick="selectLaundryTime('13:00')">13:00</div></div>
         </div>
         <div class="component-5">
-          <div class="overlap-6"><div class="text-wrapper-15">19:00</div></div>
-          <div class="overlap-5"><div class="text-wrapper-16">20:00</div></div>
-          <div class="div-2"><div class="text-wrapper-17">16:00</div></div>
-          <div class="overlap-12"><div class="text-wrapper-17">17:00</div></div>
-          <div class="overlap-3"><div class="text-wrapper-15">18:00</div></div>
-          <div class="overlap-group"><div class="text-wrapper-16">23:00</div></div>
-          <div class="div-wrapper"><div class="text-wrapper-15">22:00</div></div>
-          <div class="overlap-2"><div class="text-wrapper-15">21:00</div></div>
+          <div class="overlap-6"><div class="text-wrapper" onclick="selectLaundryTime('19:00')">19:00</div></div>
+          <div class="overlap-5"><div class="text-wrapper" onclick="selectLaundryTime('20:00')">20:00</div></div>
+          <div class="div-2"><div class="text-wrapper" onclick="selectLaundryTime('16:00')">16:00</div></div>
+          <div class="overlap-12"><div class="text-wrapper" onclick="selectLaundryTime('17:00')">17:00</div></div>
+          <div class="overlap-3"><div class="text-wrapper" onclick="selectLaundryTime('18:00')">18:00</div></div>
+          <div class="overlap-group"><div class="text-wrapper" onclick="selectLaundryTime('23:00')">23:00</div></div>
+          <div class="div-wrapper"><div class="text-wrapper" onclick="selectLaundryTime('22:00')">22:00</div></div>
+          <div class="overlap-2"><div class="text-wrapper" onclick="selectLaundryTime('21:00')">21:00</div></div>
 		  
         </div>
       </div>

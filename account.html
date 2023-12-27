@@ -5,8 +5,22 @@
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="styleguide2.css" />
     <link rel="stylesheet" href="style2.css" />
+	<script>
+	function goTo(page) {
+            if (page === 'stirka') {
+                window.location.href = 'stirka.html';
+            } else if (page === 'dush') {
+                window.location.href = 'dush.html';
+            } else if (page === 'info') {
+                window.location.href = 'info.html';
+            } else if (page === 'account') {
+                window.location.href = 'account.html';
+            }
+        }
+		</script>
   </head>
   <body>
+  
     <div class="desktop">
       <div class="div">
         <div class="component">
@@ -15,10 +29,10 @@
               <div class="rectangle"></div>
               <div class="text-wrapper">NEPTUNE</div>
             </div>
-            <div class="div-wrapper"><div class="text-wrapper-2">Стирка</div></div>
-            <div class="overlap-2"><div class="text-wrapper-3">Душ</div></div>
-            <div class="overlap-3"><div class="text-wrapper-4">Информация</div></div>
-            <div class="overlap-4"><div class="text-wrapper-5">Аккаунт</div></div>
+            <div class="div-wrapper"><div class="text-wrapper-2" onclick="goTo('stirka')">Стирка</div></div>
+            <div class="overlap-2"><div class="text-wrapper-3" onclick="goTo('dush')">Душ</div></div>
+            <div class="overlap-3"><div class="text-wrapper-4" onclick="goTo('info')">Информация</div></div>
+            <div class="overlap-4"><div class="text-wrapper-5" onclick="goTo('account')">Аккаунт</div></div>
           </div>
         </div>
         <div class="overlap-5"><div class="text-wrapper-6">ФИО</div></div>
